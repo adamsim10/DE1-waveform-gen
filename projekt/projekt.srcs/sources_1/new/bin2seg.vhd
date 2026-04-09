@@ -61,17 +61,17 @@ begin
             when x"9" =>
                 seg <= b"000_0100";
             when x"A" =>
-                seg <= b"000_1000";
+                seg <= b"111_1111";
             when x"b" =>
-                seg <= b"110_0000";
+                seg <= b"111_1111";
             when x"C" =>
-                seg <= b"011_0001";
+                seg <= b"111_1111";
             when x"d" =>
-                seg <= b"100_0010";
+                seg <= b"111_1111";
             when x"E" =>
-                seg <= b"011_0000";
+                seg <= b"111_1111";
             when x"F" =>
-                seg <= b"011_1000";
+                seg <= b"111_1111";
 
             -- Default case (e.g., for undefined values)
             when others =>

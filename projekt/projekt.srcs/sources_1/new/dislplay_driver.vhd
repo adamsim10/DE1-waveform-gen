@@ -22,7 +22,8 @@ entity display_driver is
         rst   : in  std_logic;
         data  : in  std_logic_vector(31 downto 0);  -- Vector of input bits, 4 per digit
         seg   : out std_logic_vector(6 downto 0);
-        anode : out std_logic_vector(7 downto 0)
+        anode : out std_logic_vector(7 downto 0);
+        blink : in  std_logic_vector(7 downto 0)
     );
 end entity display_driver;
 
@@ -58,23 +59,38 @@ architecture Behavioral of display_driver is
         end component bin2seg;
     
     -- Internal signals
-    signal sig_en    : std_logic;
-    signal sig_digit : std_logic_vector(2 downto 0);  -- Can be scalable
-    signal sig_bin   : std_logic_vector(3 downto 0);
-
+    signal sig_en        : std_logic;
+    signal sig_en_blink  : std_logic;
+    signal sig_blink     : std_logic_vector(0 downto 0);
+    signal sig_digit     : std_logic_vector(2 downto 0);  -- Can be scalable
+    signal sig_bin       : std_logic_vector(3 downto 0);
+    signal sig_anode_no_blink: std_logic_vector(7 downto 0);
+    
 begin
 
     ------------------------------------------------------------------------
     -- Clock enable generator for refresh timing
     ------------------------------------------------------------------------
     clock_0 : clk_en
-        generic map ( G_MAX => 800_000 ) -- Adjust for flicker-free multiplexing
+        generic map ( G_MAX => 125_000 ) -- Adjust for flicker-free multiplexing
         port map (                 -- For simulation: 1
-            clk => clk,            -- For implementation: 8_000_000
+            clk => clk,            -- For implementation: 125_000
             rst => rst,
             ce  => sig_en
         );
-
+    
+    
+    ------------------------------------------------------------------------
+    -- Clock enable generator for blink
+    ------------------------------------------------------------------------
+    clock_1 : clk_en
+        generic map ( G_MAX => 50_000_000 ) -- Adjust for flicker-free multiplexing
+        port map (                 -- For simulation: 100
+            clk => clk,            -- For implementation: 50_000_000
+            rst => rst,
+            ce  => sig_en_blink
+        );
+    
     ------------------------------------------------------------------------
     -- N-bit counter for digit selection
     ------------------------------------------------------------------------
@@ -86,7 +102,19 @@ begin
            en  => sig_en,
            cnt => sig_digit
        );
-
+    
+    
+    ------------------------------------------------------------------------
+    -- N-bit counter for blink
+    ------------------------------------------------------------------------
+    counter_1 : counter
+    generic map ( G_BITS => 1 )
+       port map (
+           clk => clk,
+           rst => rst,
+           en  => sig_en_blink,
+           cnt => sig_blink
+       );
 
     ------------------------------------------------------------------------
     -- Digit select
@@ -99,8 +127,10 @@ begin
                 data(23 downto 20) when sig_digit = "101" else
                 data(27 downto 24) when sig_digit = "110" else
                 data(31 downto 28);
-
-    anode <=    b"11111110" when sig_digit = "000" else
+    ------------------------------------------------------------------------
+    -- anode select
+    ------------------------------------------------------------------------
+    sig_anode_no_blink <=    b"11111110" when sig_digit = "000" else
                 b"11111101" when sig_digit = "001" else
                 b"11111011" when sig_digit = "010" else
                 b"11110111" when sig_digit = "011" else
@@ -109,6 +139,10 @@ begin
                 b"10111111" when sig_digit = "110" else
                 b"01111111";
                 
+    ------------------------------------------------------------------------
+    -- mask to blink leds
+    ------------------------------------------------------------------------
+    anode <= (sig_anode_no_blink and not blink) when sig_blink = "1" else sig_anode_no_blink;
     
     ------------------------------------------------------------------------
     -- 7-segment decoder

@@ -11,7 +11,8 @@ architecture tb of display_driver_tb is
               rst   : in  std_logic;
               data  : in  std_logic_vector(31 downto 0);
               seg   : out std_logic_vector(6 downto 0);
-              anode : out std_logic_vector(7 downto 0));
+              anode : out std_logic_vector(7 downto 0);
+              blink : in  std_logic_vector(7 downto 0));
     end component;
 
     signal clk   : std_logic;
@@ -19,7 +20,7 @@ architecture tb of display_driver_tb is
     signal data  : std_logic_vector(31 downto 0);
     signal seg   : std_logic_vector(6 downto 0);
     signal anode : std_logic_vector(7 downto 0);
-
+    signal blink : std_logic_vector(7 downto 0);
     constant TbPeriod : time := 10 ns; -- ***EDIT*** Put right period here
     signal TbClock : std_logic := '0';
     signal TbSimEnded : std_logic := '0';
@@ -31,7 +32,8 @@ begin
               rst   => rst,
               data  => data,
               seg   => seg,
-              anode => anode);
+              anode => anode,
+              blink => blink);
 
     -- Clock generation
     TbClock <= not TbClock after TbPeriod/2 when TbSimEnded /= '1' else '0';
@@ -40,7 +42,7 @@ begin
     stimuli : process
     begin
         data <= x"00000000";
-
+        blink <= x"00";
         -- Reset generation
         rst <= '1';
         wait for 100 ns;
@@ -55,6 +57,9 @@ begin
 
         data <= x"579124E6";
         wait for 50 * TbPeriod;
+        
+        blink <= b"00001000";
+        wait for 2000 * TbPeriod;
 
         -- Stop the clock and hence terminate the simulation
         TbSimEnded <= '1';

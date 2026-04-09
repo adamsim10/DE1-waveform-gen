@@ -13,7 +13,9 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling architecture behavioral of entity xil_defaultlib.clk_en [\clk_en(g_max=1)\]
+Compiling architecture behavioral of entity xil_defaultlib.clk_en [\clk_en(g_max=100)\]
 Compiling architecture behavioral of entity xil_defaultlib.counter [counter_default]
+Compiling architecture behavioral of entity xil_defaultlib.counter [\counter(g_bits=1)\]
 Compiling architecture behavioral of entity xil_defaultlib.bin2seg [bin2seg_default]
 Compiling architecture behavioral of entity xil_defaultlib.display_driver [display_driver_default]
 Compiling architecture tb of entity xil_defaultlib.display_driver_tb
