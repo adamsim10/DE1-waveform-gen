@@ -2,3 +2,6 @@ Running: xsim.dir/display_driver_tb_behav/xsimk.exe -simmode gui -wdb display_dr
 Design successfully loaded
 Design Loading Memory Usage: 10800 KB (Peak: 10800 KB)
 Design Loading CPU Usage: 62 ms
+Simulation completed
+Simulation Memory Usage: 11856 KB (Peak: 11856 KB)
+Simulation CPU Usage: 124 ms

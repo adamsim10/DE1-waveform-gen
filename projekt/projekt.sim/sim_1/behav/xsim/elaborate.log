@@ -1,7 +1,7 @@
 Vivado Simulator v2025.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot display_driver_tb_behav xil_defaultlib.display_driver_tb -log elaborate.log 
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_FreqToPhase_behav xil_defaultlib.tb_FreqToPhase -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -12,11 +12,6 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.clk_en [\clk_en(g_max=1)\]
-Compiling architecture behavioral of entity xil_defaultlib.clk_en [\clk_en(g_max=100)\]
-Compiling architecture behavioral of entity xil_defaultlib.counter [counter_default]
-Compiling architecture behavioral of entity xil_defaultlib.counter [\counter(g_bits=1)\]
-Compiling architecture behavioral of entity xil_defaultlib.bin2seg [bin2seg_default]
-Compiling architecture behavioral of entity xil_defaultlib.display_driver [display_driver_default]
-Compiling architecture tb of entity xil_defaultlib.display_driver_tb
-Built simulation snapshot display_driver_tb_behav
+Compiling architecture behavioral of entity xil_defaultlib.FreqToPhase [freqtophase_default]
+Compiling architecture tb of entity xil_defaultlib.tb_freqtophase
+Built simulation snapshot tb_FreqToPhase_behav
