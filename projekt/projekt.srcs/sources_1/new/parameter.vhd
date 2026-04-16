@@ -41,6 +41,10 @@ entity parameter is
     right : in STD_LOGIC;
     up : in STD_LOGIC;
     down : in STD_LOGIC;
+    left_h : in STD_LOGIC;
+    right_h : in STD_LOGIC;
+    up_h : in STD_LOGIC;
+    down_h : in STD_LOGIC;    
     display : out STD_LOGIC_VECTOR (31 downto 0);
     blink : out STD_LOGIC_VECTOR (7 downto 0);
     freq : out STD_LOGIC_VECTOR (13 downto 0);
@@ -58,6 +62,8 @@ architecture Behavioral of parameter is
     signal bcd_digits : t_bcd_array := (
          2 => x"4", 
          others => x"0");
+         
+    signal sig_blink : std_logic_vector (7 downto 0);
     
 begin
     parameter : process (clk) is
@@ -93,16 +99,29 @@ begin
             elsif up = '1' then
                 if bcd_digits(sig_selected) = x"9" then
                     bcd_digits(sig_selected) <= x"0";
+                elsif bcd_digits(sig_selected) = x"3" and sig_selected = 7 then
+                    bcd_digits(sig_selected) <= x"0";
                 else
                     bcd_digits(sig_selected) <= std_logic_vector(unsigned(bcd_digits(sig_selected)) + 1);
                 end if;
                 
+                
+                
             --odečtení 1 z vybranémho segmentu,
             elsif down ='1'then 
                 if bcd_digits(sig_selected) = x"0" then
-                    bcd_digits(sig_selected) <= x"9";
+                    if sig_selected = 7 then 
+                        bcd_digits(7) <= x"3";
+                    else 
+                        bcd_digits(sig_selected) <= x"9";
+                    end if;
                 else
                     bcd_digits(sig_selected) <= std_logic_vector(unsigned(bcd_digits(sig_selected)) - 1);
+                end if;
+                
+                if bcd_digits(7) = x"7" then 
+                    bcd_digits(7) <= x"3";
+                    
                 end if;
             end if; 
             
@@ -131,11 +150,7 @@ begin
                 bcd_digits(4) <= x"1";
             end if;
             
-            if bcd_digits(7) = x"7" then 
-               bcd_digits(7) <= x"3";
-            elsif unsigned(freq_raw) > 3 then
-               bcd_digits(7) <= x"0";            
-            end if;
+          
         end if;
     end process;
    
@@ -152,12 +167,14 @@ begin
     freq <= std_logic_vector(to_unsigned(1, 14)) when unsigned(freq_raw) = 0 else 
             std_logic_vector(to_unsigned(10000, 14)) when unsigned(freq_raw) > 10000 else freq_raw;
     
-    blink <= b"00000001" when sig_selected = 0 else
-             b"00000010" when sig_selected = 1 else
-             b"00000100" when sig_selected = 2 else
-             b"00001000" when sig_selected = 3 else
-             b"00010000" when sig_selected = 4 else
-             b"00100000" when sig_selected = 5 else
-             b"10000000";
+   sig_blink <= b"00000001" when sig_selected = 0 else
+          b"00000010" when sig_selected = 1 else
+          b"00000100" when sig_selected = 2 else
+          b"00001000" when sig_selected = 3 else
+          b"00010000" when sig_selected = 4 else
+          b"00100000" when sig_selected = 5 else
+          b"10000000";
     
+    blink <= sig_blink when not (left_h = '1' or right_h = '1' or up_h = '1' or down_h = '1') 
+          else b"00000000";
 end Behavioral;

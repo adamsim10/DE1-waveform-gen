@@ -18,6 +18,10 @@ architecture tb of tb_parameter is
               right    : in std_logic;
               up       : in std_logic;
               down     : in std_logic;
+              left_h : in STD_LOGIC;
+              right_h : in STD_LOGIC;
+              up_h : in STD_LOGIC;
+              down_h : in STD_LOGIC;
               display  : out std_logic_vector (31 downto 0);
               blink    : out std_logic_vector (7 downto 0);
               freq     : out std_logic_vector (13 downto 0);
@@ -34,6 +38,10 @@ architecture tb of tb_parameter is
     signal blink    : std_logic_vector (7 downto 0);
     signal freq     : std_logic_vector (13 downto 0);
     signal waveform : std_logic_vector (1 downto 0);
+    signal left_h   : STD_LOGIC;
+    signal right_h  : STD_LOGIC;
+    signal up_h     : STD_LOGIC;
+    signal down_h   : STD_LOGIC;
 
     constant TbPeriod : time := 10 ns; -- ***EDIT*** Put right period here
     signal TbClock : std_logic := '0';
@@ -51,7 +59,12 @@ begin
               display  => display,
               blink    => blink,
               freq     => freq,
-              waveform => waveform);
+              waveform => waveform,
+              left_h   => left_h,
+              right_h  => right_h,
+              up_h     =>  up_h,
+              down_h   => down_h
+              );
 
     -- Clock generation
     TbClock <= not TbClock after TbPeriod/2 when TbSimEnded /= '1' else '0';
@@ -67,6 +80,10 @@ begin
         right <= '0';
         up <= '0';
         down <= '0';
+        down_h <= '0';
+        up_h <= '0';
+        right_h <= '0';
+        left_h <= '0';
 
         rst <= '1';
         wait for 2 * TbPeriod;
@@ -157,6 +174,30 @@ begin
             down <= '0';
             wait for 2 * TbPeriod;
         end loop;
+        
+        --test výběru průběhu
+        left <= '1';
+        wait for TbPeriod;
+        left <= '0';
+        wait for 2 * TbPeriod;
+        
+        
+        for i in 1 to 5 loop
+            up <= '1';
+            wait for TbPeriod;
+            up <= '0';
+            wait for 2 * TbPeriod;
+        end loop;
+        
+        for i in 1 to 5 loop
+            down <= '1';
+            wait for TbPeriod;
+            down <= '0';
+            wait for 2 * TbPeriod;
+        end loop;
+        
+        
+        
         
         -- Menší pauza před koncem simulace
         wait for 10 * TbPeriod;

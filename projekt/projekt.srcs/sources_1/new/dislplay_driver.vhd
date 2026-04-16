@@ -72,7 +72,7 @@ begin
     -- Clock enable generator for refresh timing
     ------------------------------------------------------------------------
     clock_0 : clk_en
-        generic map ( G_MAX => 125_000 ) -- Adjust for flicker-free multiplexing
+        generic map ( G_MAX => 125_000 )
         port map (                 -- For simulation: 1
             clk => clk,            -- For implementation: 125_000
             rst => rst,
@@ -142,7 +142,7 @@ begin
     ------------------------------------------------------------------------
     -- mask to blink leds
     ------------------------------------------------------------------------
-    anode <= (sig_anode_no_blink and not blink) when sig_blink = "1" else sig_anode_no_blink;
+    anode <= (sig_anode_no_blink or blink) when sig_blink = "1" else sig_anode_no_blink;
     
     ------------------------------------------------------------------------
     -- 7-segment decoder
