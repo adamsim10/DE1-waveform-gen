@@ -17,6 +17,8 @@
 -- - Configurable debounce time via clock enable
 -- - One-clock pulse output for button press
 -------------------------------------------------
+-- Modified by Simon Tokarcik for continuous pulses when held
+-------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -28,8 +30,9 @@ entity debounce is
         rst         : in  std_logic;
         btn_in      : in  std_logic;  -- Bouncey button input
         btn_state   : out std_logic;  -- Debounced level
-        btn_press   : out std_logic   -- 1-clock press pulse
+        btn_press   : out std_logic;  -- 1-clock press pulse
         -- btn_release : out std_logic   -- 1-clock release pulse
+        btn_hold    : out std_logic   -- 1-clock pulse on press + every 0.5s
     );
 end entity debounce;
 
@@ -39,10 +42,13 @@ architecture Behavioral of debounce is
     -- Constants
     ----------------------------------------------------------------
     constant C_SHIFT_LEN : positive := 4;  -- Debounce history
-    constant C_MAX       : positive := 200_000;  -- Sampling period
+    constant C_MAX       : positive := 2;  -- Sampling period
                                            -- 2 for simulation
                                            -- 200_000 (2 ms) for implementation !!!
-
+    constant C_PULSE      : positive := 5; -- Pulse delay period
+                                           -- 5 for simulation
+                                           -- 50_000_000 (0.5 s) for implementation
+    
     ----------------------------------------------------------------
     -- Internal signals
     ----------------------------------------------------------------
@@ -52,6 +58,11 @@ architecture Behavioral of debounce is
     signal shift_reg : std_logic_vector(C_SHIFT_LEN-1 downto 0);
     signal debounced : std_logic;
     signal delayed   : std_logic;
+    
+    -- Signals for the repeated pulse feature
+    signal sig_press   : std_logic;
+    signal timer_rst   : std_logic;
+    signal ce_half_sec : std_logic;
 
     ----------------------------------------------------------------
     -- Component declaration for clock enable
@@ -78,6 +89,20 @@ begin
             ce  => ce_sample
         );
 
+    ----------------------------------------------------------------
+    -- Clock enable instance for repeated pulses
+    ----------------------------------------------------------------
+    -- Reset timer when main reset is high OR button is NOT pressed
+    timer_rst <= rst or not debounced;
+
+    clock_repeat : clk_en
+        generic map ( G_MAX => C_PULSE )
+        port map (
+            clk => clk,
+            rst => timer_rst,
+            ce  => ce_half_sec
+        );
+        
     ----------------------------------------------------------------
     -- Synchronizer + debounce
     ----------------------------------------------------------------
@@ -128,5 +153,10 @@ begin
     -- One-clock pulse when button pressed and released
     btn_press   <= debounced and not(delayed);
     -- btn_release <= not(debounced) and delayed;
+    
+    -- Internal signal for press pulse
+    sig_press <= debounced and not(delayed);
+    -- Hold: Combines press pulse and periodic pulses
+    btn_hold <= sig_press or ce_half_sec;
 
 end architecture Behavioral;
