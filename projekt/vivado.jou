@@ -1,0 +1,47 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Apr 16 18:25:32 2026
+# Process ID         : 14168
+# Current directory  : C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent17472 C:\Users\adamsim\Documents\GitHub\DE1-waveform-gen\projekt\projekt.xpr
+# Log file           : C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/vivado.log
+# Journal file       : C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt\vivado.jou
+# Running On         : DESKTOP-LH20376
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 7640U w/ Radeon 760M Graphics      
+# CPU Frequency      : 3494 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33618 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 35765 MB
+# Available Virtual  : 22779 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.xpr
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.runs/impl_1/top.bit} [get_hw_devices xc7a50t_0]
+current_hw_device [get_hw_devices xc7a50t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a50t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.runs/impl_1/top.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a50t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a50t_0]
+set_property PROGRAM.FILE {C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.runs/impl_1/top.bit} [get_hw_devices xc7a50t_0]
+program_hw_devices [get_hw_devices xc7a50t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a50t_0] 0]

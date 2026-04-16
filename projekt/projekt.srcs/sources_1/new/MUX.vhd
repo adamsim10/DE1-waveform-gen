@@ -44,7 +44,7 @@ architecture Behavioral of MUX is
 
 begin
     OUT1 <= IN1 when SEL = "00" else
-            IN1 when SEL = "01" else
-            IN1 when SEL = "10" else
+            IN2 when SEL = "01" else
+            IN3 when SEL = "10" else
             IN4;
 end Behavioral;

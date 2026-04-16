@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Thu Apr 16 17:43:35 2026
+| Date         : Thu Apr 16 18:32:28 2026
 | Host         : DESKTOP-LH20376 running 64-bit major release  (build 9200)
 | Command      : report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
 | Design       : top
@@ -24,12 +24,13 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max checks: <unlimited>
-             Checks found: 3
+             Checks found: 4
 +----------+----------+-----------------------------------------------------+--------+
 | Rule     | Severity | Description                                         | Checks |
 +----------+----------+-----------------------------------------------------+--------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1      |
 | DPIP-1   | Warning  | Input pipelining                                    | 1      |
+| DPOP-1   | Warning  | PREG Output pipelining                              | 1      |
 | DPOP-2   | Warning  | MREG Output pipelining                              | 1      |
 +----------+----------+-----------------------------------------------------+--------+
 
@@ -50,12 +51,17 @@ Related violations: <none>
 
 DPIP-1#1 Warning
 Input pipelining  
-DSP FREQ_TO_PHASE0/accumulator_reg input FREQ_TO_PHASE0/accumulator_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP FREQ_TO_PHASE0/accumulator0 input FREQ_TO_PHASE0/accumulator0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-1#1 Warning
+PREG Output pipelining  
+DSP FREQ_TO_PHASE0/accumulator0 output FREQ_TO_PHASE0/accumulator0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-2#1 Warning
 MREG Output pipelining  
-DSP FREQ_TO_PHASE0/accumulator_reg multiplier stage FREQ_TO_PHASE0/accumulator_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP FREQ_TO_PHASE0/accumulator0 multiplier stage FREQ_TO_PHASE0/accumulator0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 
