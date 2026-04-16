@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use ieee.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -37,7 +38,11 @@ entity TRI_W is
 end TRI_W;
 
 architecture Behavioral of TRI_W is
-    
+    signal sig_up : std_logic_vector (7 downto 0);
+    signal sig_down : std_logic_vector (7 downto 0);
 begin
-    amplitude <= phase;
+    sig_up <= phase(6 downto 0) & '0';
+    sig_down <= std_logic_vector(255 - unsigned(phase(6 downto 0) & '0'));
+    
+    amplitude <= sig_up when phase(7) = '0' else sig_down;
 end Behavioral;

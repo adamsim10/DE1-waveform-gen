@@ -39,5 +39,5 @@ end SQR_W;
 architecture Behavioral of SQR_W is
    
 begin
-    amplitude <= phase;
+    amplitude <= x"ff" when phase(7) = '0' else x"00";
 end Behavioral;
