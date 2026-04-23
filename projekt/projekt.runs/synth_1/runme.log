@@ -8,12 +8,12 @@
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Thu Apr 16 18:31:04 2026
+  **** Start of session at: Thu Apr 23 17:09:42 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 534.953 ; gain = 221.723
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 531.918 ; gain = 219.496
 Command: read_checkpoint -auto_incremental -incremental C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/utils_1/imports/synth_1/top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -26,9 +26,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 7780
+INFO: [Synth 8-7075] Helper process launched with PID 14036
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1269.184 ; gain = 541.957
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1268.707 ; gain = 541.965
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/top.vhd:49]
 INFO: [Synth 8-3491] module 'parameter' declared at 'C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/parameter.vhd:36' bound to instance 'PARAMETER_0' of component 'parameter' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/top.vhd:162]
@@ -41,10 +41,10 @@ INFO: [Synth 8-3491] module 'clk_en' declared at 'C:/Users/adamsim/Documents/Git
 INFO: [Synth 8-638] synthesizing module 'clk_en' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:32]
 	Parameter G_MAX bound to: 200000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clk_en' (0#1) [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:32]
-	Parameter G_MAX bound to: 50000000 - type: integer 
+	Parameter G_MAX bound to: 25000000 - type: integer 
 INFO: [Synth 8-3491] module 'clk_en' declared at 'C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:21' bound to instance 'clock_repeat' of component 'clk_en' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/debounce.vhd:98]
 INFO: [Synth 8-638] synthesizing module 'clk_en__parameterized1' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:32]
-	Parameter G_MAX bound to: 50000000 - type: integer 
+	Parameter G_MAX bound to: 25000000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clk_en__parameterized1' (0#1) [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:32]
 INFO: [Synth 8-256] done synthesizing module 'debounce' (0#1) [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/debounce.vhd:39]
 INFO: [Synth 8-3491] module 'debounce' declared at 'C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/debounce.vhd:27' bound to instance 'DB_DOWN' of component 'debounce' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/top.vhd:195]
@@ -80,6 +80,9 @@ INFO: [Synth 8-638] synthesizing module 'clk_en__parameterized3' [C:/Users/adams
 INFO: [Synth 8-256] done synthesizing module 'clk_en__parameterized3' (0#1) [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:32]
 	Parameter G_MAX bound to: 50000000 - type: integer 
 INFO: [Synth 8-3491] module 'clk_en' declared at 'C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:21' bound to instance 'clock_1' of component 'clk_en' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/dislplay_driver.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'clk_en__parameterized5' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:32]
+	Parameter G_MAX bound to: 50000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clk_en__parameterized5' (0#1) [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/clk_en.vhd:32]
 	Parameter G_BITS bound to: 3 - type: integer 
 INFO: [Synth 8-3491] module 'counter' declared at 'C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/counter.vhd:26' bound to instance 'counter_0' of component 'counter' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/dislplay_driver.vhd:97]
 INFO: [Synth 8-638] synthesizing module 'counter' [C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.srcs/sources_1/new/counter.vhd:38]
@@ -120,18 +123,18 @@ WARNING: [Synth 8-7129] Port sw[3] in module top is either unconnected or has no
 WARNING: [Synth 8-7129] Port sw[2] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port sw[1] in module top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1393.660 ; gain = 666.434
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1392.488 ; gain = 665.746
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1393.660 ; gain = 666.434
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1392.488 ; gain = 665.746
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1393.660 ; gain = 666.434
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1392.488 ; gain = 665.746
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1393.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1392.488 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -142,31 +145,31 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1474.648 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1474.066 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1474.648 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1474.066 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1474.648 ; gain = 747.422
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1474.066 ; gain = 747.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a50ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1474.648 ; gain = 747.422
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1474.066 ; gain = 747.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1474.648 ; gain = 747.422
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1474.066 ; gain = 747.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1474.648 ; gain = 747.422
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1474.066 ; gain = 747.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -178,13 +181,14 @@ Detailed RTL Component Info :
 	   2 Input    3 Bit       Adders := 3     
 +---Registers : 
 	               32 Bit    Registers := 1     
-	               14 Bit    Registers := 1     
+	               15 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 13    
 	                3 Bit    Registers := 2     
 	                1 Bit    Registers := 28    
 +---Muxes : 
-	   2 Input   14 Bit        Muxes := 2     
+	   2 Input   15 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 4     
 	   7 Input    8 Bit        Muxes := 1     
 	   4 Input    8 Bit        Muxes := 1     
@@ -230,7 +234,7 @@ WARNING: [Synth 8-7129] Port sw[3] in module top is either unconnected or has no
 WARNING: [Synth 8-7129] Port sw[2] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port sw[1] in module top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1474.648 ; gain = 747.422
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1474.066 ; gain = 747.324
 ---------------------------------------------------------------------------------
  Sort Area is  FREQ_TO_PHASE0/accumulator0_0 : 0 0 : 288 288 : Used 1 time 0
 ---------------------------------------------------------------------------------
@@ -261,20 +265,20 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1632.770 ; gain = 905.543
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1638.797 ; gain = 912.055
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1677.320 ; gain = 950.094
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1685.047 ; gain = 958.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-7052] The timing for the instance i_18 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1687.406 ; gain = 960.180
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1695.363 ; gain = 968.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -292,37 +296,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1902.016 ; gain = 1174.789
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1909.129 ; gain = 1182.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1902.016 ; gain = 1174.789
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1909.129 ; gain = 1182.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1902.016 ; gain = 1174.789
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1909.129 ; gain = 1182.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1902.016 ; gain = 1174.789
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1909.129 ; gain = 1182.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1902.051 ; gain = 1174.824
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1910.109 ; gain = 1183.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1902.051 ; gain = 1174.824
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1910.109 ; gain = 1183.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -347,43 +351,43 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     1|
-|2     |CARRY4   |    83|
+|2     |CARRY4   |    84|
 |3     |DSP48E1  |     1|
 |4     |LUT1     |    22|
-|5     |LUT2     |    87|
-|6     |LUT3     |    26|
+|5     |LUT2     |    88|
+|6     |LUT3     |    28|
 |7     |LUT4     |    47|
-|8     |LUT5     |    33|
-|9     |LUT6     |    71|
+|8     |LUT5     |    36|
+|9     |LUT6     |    68|
 |10    |MUXF7    |     5|
 |11    |RAMB18E1 |     1|
-|12    |FDRE     |   327|
+|12    |FDRE     |   324|
 |13    |FDSE     |     4|
 |14    |IBUF     |     7|
 |15    |OBUF     |    18|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1902.051 ; gain = 1174.824
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1910.109 ; gain = 1183.367
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 16 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 1902.051 ; gain = 1093.836
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1902.051 ; gain = 1174.824
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 1910.109 ; gain = 1101.789
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1910.109 ; gain = 1183.367
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1911.199 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 90 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1919.277 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 91 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1914.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1922.973 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 822cbcac
+Synth Design complete | Checksum: 3f31f14b
 INFO: [Common 17-83] Releasing license: Synthesis
-77 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
+79 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1914.898 ; gain = 1374.125
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1914.898 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1922.973 ; gain = 1383.738
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1922.973 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.runs/synth_1/top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 16 18:31:47 2026...
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 23 17:10:28 2026...

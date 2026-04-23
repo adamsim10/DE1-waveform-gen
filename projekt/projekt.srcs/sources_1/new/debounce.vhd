@@ -45,7 +45,7 @@ architecture Behavioral of debounce is
     constant C_MAX       : positive := 200_000;  -- Sampling period
                                            -- 2 for simulation
                                            -- 200_000 (2 ms) for implementation !!!
-    constant C_PULSE      : positive := 50_000_000; -- Pulse delay period
+    constant C_PULSE      : positive := 25_000_000; -- Pulse delay period
                                            -- 5 for simulation
                                            -- 50_000_000 (0.5 s) for implementation
     

@@ -55,7 +55,7 @@ end parameter;
 architecture Behavioral of parameter is
     
     signal sig_selected : integer range 0 to 7 := 7;
-    signal freq_raw : STD_LOGIC_VECTOR (13 downto 0);
+    signal freq_raw : STD_LOGIC_VECTOR (14 downto 0);
     
     --array jednotlivých bcd kodů sedmisegmentů
     type t_bcd_array is array (0 to 7) of std_logic_vector(3 downto 0);
@@ -128,21 +128,21 @@ begin
             --sečtení jednotlivých segmentů
             freq_raw <= std_logic_vector(
             resize(
-                (resize(unsigned(bcd_digits(4)), 14) * 10000) +
-                (resize(unsigned(bcd_digits(3)), 14) * 1000) +
-                (resize(unsigned(bcd_digits(2)), 14) * 100) +
-                (resize(unsigned(bcd_digits(1)), 14) * 10) +
-                 resize(unsigned(bcd_digits(0)), 14), 14));
+                (resize(unsigned(bcd_digits(4)), 15) * 10000) +
+                (resize(unsigned(bcd_digits(3)), 15) * 1000) +
+                (resize(unsigned(bcd_digits(2)), 15) * 100) +
+                (resize(unsigned(bcd_digits(1)), 15) * 10) +
+                 resize(unsigned(bcd_digits(0)), 15), 15));
             
             --oštření segmentů aby byly v rozsahu, tento kod proběhne kvuli zpoždění jednoho cyklu až později
             --samotné ošetření výstupů je dále, tohle je jenom aby se segmenty vrátili eventuelně na validní
             --několik cyklů na segmentu nevadí protože je to velmi krátký usek                  
             if unsigned(freq_raw) = 0 then
-                freq_raw <= std_logic_vector(to_unsigned(1, 14)); 
+                freq_raw <= std_logic_vector(to_unsigned(1, 15)); 
                 bcd_digits(0) <= x"1";
                 
-            elsif unsigned(freq_raw) > 10000 or unsigned(bcd_digits(4)) > 1 then 
-                freq_raw <= std_logic_vector(to_unsigned(10000, 14)); 
+            elsif (unsigned(freq_raw) > 10000) or unsigned(bcd_digits(4)) > 1 then 
+                freq_raw <= std_logic_vector(to_unsigned(10000, 15)); 
                 bcd_digits(0) <= x"0";
                 bcd_digits(1) <= x"0";
                 bcd_digits(2) <= x"0";
@@ -165,7 +165,7 @@ begin
     
     --když uživatel nasataví frekvenci na mimo rozsach tak na jeden cyklus zůstane mimo rozsach
     freq <= std_logic_vector(to_unsigned(1, 14)) when unsigned(freq_raw) = 0 else 
-            std_logic_vector(to_unsigned(10000, 14)) when unsigned(freq_raw) > 10000 else freq_raw;
+            std_logic_vector(to_unsigned(10000, 14)) when unsigned(freq_raw) > 10000 else freq_raw(13 downto 0);
     
    sig_blink <= b"00000001" when sig_selected = 0 else
           b"00000010" when sig_selected = 1 else

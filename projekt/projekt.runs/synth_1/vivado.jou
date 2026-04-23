@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Thu Apr 16 18:31:03 2026
-# Process ID         : 4588
+# Start of session at: Thu Apr 23 17:09:42 2026
+# Process ID         : 1176
 # Current directory  : C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.runs/synth_1
 # Command line       : vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file           : C:/Users/adamsim/Documents/GitHub/DE1-waveform-gen/projekt/projekt.runs/synth_1/top.vds
@@ -13,12 +13,12 @@
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 26200
 # Processor Detail   : AMD Ryzen 5 7640U w/ Radeon 760M Graphics      
-# CPU Frequency      : 3494 MHz
+# CPU Frequency      : 3493 MHz
 # CPU Physical cores : 6
 # CPU Logical cores  : 12
 # Host memory        : 33618 MB
 # Swap memory        : 2147 MB
 # Total Virtual      : 35765 MB
-# Available Virtual  : 20772 MB
+# Available Virtual  : 22458 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
