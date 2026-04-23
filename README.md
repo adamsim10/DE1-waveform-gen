@@ -37,11 +37,12 @@ Ovládání je navrženo pomocí integrovaných tlačítek a přepínačů na de
 Nastavené parametry a generovaný signál jsou vyvedeny na následující periferie:
 
 **Sedmisegmentový displej:**
-* **Nultý segment (DISP 0)** - Zobrazení jednotkové složky nastaveného kmitočtu.
-* **První segment (DISP 1)** - Zobrazení desítkové složky nastaveného kmitočtu.
-* **Druhý segment (DISP 2)** - Zobrazení stovkové složky nastaveného kmitočtu.
-* **Třetí segment (DISP 3)** - Zobrazení tisícové složky nastaveného kmitočtu.
-* **Sedmý segment (DISP 7)** - Indikace aktuálně zvoleného typu průběhu.
+* **Nultý segment (DISP 0)**  - Zobrazení jednotkové složky nastaveného kmitočtu.
+* **První segment (DISP 1)**  - Zobrazení desítkové složky nastaveného kmitočtu.
+* **Druhý segment (DISP 2)**  - Zobrazení stovkové složky nastaveného kmitočtu.
+* **Třetí segment (DISP 3)**  - Zobrazení tisícové složky nastaveného kmitočtu.
+* **Čtvrtý segment (DISP 4)** - Zobrazení desetitisícové složky nastaveného kmitočtu.
+* **Sedmý segment (DISP 7)**  - Indikace aktuálně zvoleného typu průběhu.
 
 **Audio Výstup:**
 * PWM modulovaný signál vyvedený do 3.5mm jack konektoru na desce (aktivní pouze při zapnutém `SW0`).
