@@ -10,6 +10,11 @@ Generátor umožňuje uživateli přepínat mezi čtyřmi základními typy sign
 
 Frekvenci výstupního signálu lze nastavovat v rozsahu **od 1 Hz do 10 kHz**. Uživatelské rozhraní je řešeno pomocí tlačítek na desce pro výběr a úpravu parametrů, přičemž aktuální stav je zobrazován na sedmisegmentovém displeji. Editovaný parametr je pro lepší orientaci vizuálně indikován blikáním segmentu.
 
+## Demonstrace funkčnosti (videa)
+* [Demonstrace funkčnosti 1](https://drive.google.com/file/d/11tJnr2geuAP9pd2jWXz6jPwQipX2imMT/view?usp=drive_link)
+* [Demonstrace funkčnosti 2](https://drive.google.com/file/d/1TCETFFSu3PGTV68iCnh4JQiSy-RXiHOn/view?usp=drive_link)
+* [Demonstrace resetu](https://drive.google.com/file/d/1SbjA9Zaj2S-D-U9g994sHcU0mNFik6pN/view?usp=drive_link)
+
 ## Blokové schéma
 
 **Původní koncept:**
@@ -84,6 +89,22 @@ Pulzně šířková modulace je tvořena podle velikosti amplitudy zvoleného pr
 
 **Obdélníkový průběh**
 ![Obdélníkový průběh](simulace/simulace_obdélníkového_průběhu.png)
+
+## Zdrojové kódy
+* [Top level: top.vhd](projekt/projekt.srcs/sources_1/new/top.vhd)
+* [Debounce: debounce.vhd](projekt/projekt.srcs/sources_1/new/debounce.vhd)
+* [Display driver: ddisplay_driver.vhd](projekt/projekt.srcs/sources_1/new/dislplay_driver.vhd)
+* [Clock enable: clk_en.vhd](projekt/projekt.srcs/sources_1/new/clk_en.vhd)
+* [Bin2Seg: bin2seg.vhd](projekt/projekt.srcs/sources_1/new/bin2seg.vhd)
+* [Counter: counter.vhd](projekt/projekt.srcs/sources_1/new/counter.vhd)
+* [Hlavní logický blok: parameter.vhd](projekt/projekt.srcs/sources_1/new/parameter.vhd)
+* [Převod frekvence na fázi: FreqToPhase.vhd](projekt/projekt.srcs/sources_1/new/FreqToPhase.vhd)
+* [Multiplexer: MUX.vhd](projekt/projekt.srcs/sources_1/new/MUX.vhd)
+* [Harmonický průběh: SIN_W.vhd](projekt/projekt.srcs/sources_1/new/SIN_W.vhd)
+* [Pilovitý průběh: SAW_W.vhd](projekt/projekt.srcs/sources_1/new/SAW_W.vhd)
+* [Trojúhelníkový průběh: TRI_W.vhd](projekt/projekt.srcs/sources_1/new/TRI_W.vhd)
+* [Obdélníkový průběh: SQR_W.vhd](projekt/projekt.srcs/sources_1/new/SQR_W.vhd)
+* [Převod amplitudy na PWM: PWM.vhd](projekt/projekt.srcs/sources_1/new/PWM.vhd)
 
 ## Reporty
 
