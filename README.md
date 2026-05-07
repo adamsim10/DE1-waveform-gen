@@ -8,9 +8,12 @@ Generátor umožňuje uživateli přepínat mezi čtyřmi základními typy sign
 * Trojúhelníkový průběh (Triangle)
 * Pilovitý průběh (Sawtooth)
 
-Frekvenci výstupního signálu lze nastavovat v rozsahu **od 1 Hz do 10 kHz**. Uživatelské rozhraní je řešeno pomocí tlačítek na desce pro výběr a úpravu parametrů, přičemž aktuální stav je zobrazován na sedmisegmentovém displeji. Editovaný parametr je pro lepší orientaci vizuálně indikován blikáním segmentu.
+Frekvenci výstupního signálu lze nastavovat v rozsahu **od 1 Hz do 10 kHz**, avšak doporučený interval je od 50 Hz do 5 kHz, kvůli zkreslení které je způsobeno interním integrovaným filtrem. Nastavování frekvence je ošetřeno proti překročení výše uvedených mezí, při pokusu o jejich překonání je automaticky nastavena limitní hodnota. Uživatelské rozhraní je řešeno pomocí tlačítek na desce pro výběr a úpravu parametrů, přičemž aktuální stav je zobrazován na sedmisegmentovém displeji. Editovaný parametr je pro lepší orientaci vizuálně indikován blikáním segmentu. Při přechodu z devítky na nulu či opačně při nastavování velikosti frekvence nedochází k přetékání.
+
+Autoři: Adam Šimůnek, Šimon Tokarčík
 
 ## Demonstrace funkčnosti (videa)
+
 * [Demonstrace funkčnosti 1](https://drive.google.com/file/d/11tJnr2geuAP9pd2jWXz6jPwQipX2imMT/view?usp=drive_link)
 * [Demonstrace funkčnosti 2](https://drive.google.com/file/d/1TCETFFSu3PGTV68iCnh4JQiSy-RXiHOn/view?usp=drive_link)
 * [Demonstrace resetu](https://drive.google.com/file/d/1SbjA9Zaj2S-D-U9g994sHcU0mNFik6pN/view?usp=drive_link)
@@ -21,7 +24,10 @@ Frekvenci výstupního signálu lze nastavovat v rozsahu **od 1 Hz do 10 kHz**. 
 ![Původní blokové schéma generátoru](DE1-waveform-gen-block_diagram.png)
 
 **Konečné provedení:**
-![Výsledné blokové schéma generátoru](simulace/elaborated_design_schemaic.png)
+![Výsledné blokové schéma generátoru](DE1-waveform-gen-block_diagram_v2.png)
+
+**Elaborated design:**
+![Elaborated design z Vivada](simulace/elaborated_design_schemaic.png)
 
 ## Vstupy
 
@@ -90,10 +96,11 @@ Pulzně šířková modulace je tvořena podle velikosti amplitudy zvoleného pr
 **Obdélníkový průběh**
 ![Obdélníkový průběh](simulace/simulace_obdélníkového_průběhu.png)
 
-## Zdrojové kódy
+## Zdrojové kódy a odkazy
+
 * [Top level: top.vhd](projekt/projekt.srcs/sources_1/new/top.vhd)
 * [Debounce: debounce.vhd](projekt/projekt.srcs/sources_1/new/debounce.vhd)
-* [Display driver: ddisplay_driver.vhd](projekt/projekt.srcs/sources_1/new/dislplay_driver.vhd)
+* [Display driver: display_driver.vhd](projekt/projekt.srcs/sources_1/new/dislplay_driver.vhd)
 * [Clock enable: clk_en.vhd](projekt/projekt.srcs/sources_1/new/clk_en.vhd)
 * [Bin2Seg: bin2seg.vhd](projekt/projekt.srcs/sources_1/new/bin2seg.vhd)
 * [Counter: counter.vhd](projekt/projekt.srcs/sources_1/new/counter.vhd)
@@ -106,6 +113,9 @@ Pulzně šířková modulace je tvořena podle velikosti amplitudy zvoleného pr
 * [Obdélníkový průběh: SQR_W.vhd](projekt/projekt.srcs/sources_1/new/SQR_W.vhd)
 * [Převod amplitudy na PWM: PWM.vhd](projekt/projekt.srcs/sources_1/new/PWM.vhd)
 
+Odkaz na plakát projektu
+* [PDF plakát velikosti A3](DE1-waveform-gen_poster.pdf)
+
 ## Reporty
 
 **Využití zdrojů po syntéze**
@@ -116,3 +126,14 @@ Pulzně šířková modulace je tvořena podle velikosti amplitudy zvoleného pr
 
 **Využití zdrojů po implementaci (graf)**
 ![Využití zdrojů po implementaci graf](simulace/resource_utilization_post-impl_graph.png)
+
+## Reference a zdroje
+
+Komponenty Debounce, Display driver, Clock enable, Bin2Seg, Counter:
+* [https://github.com/tomas-fryza/vhdl-examples/tree/master](https://github.com/tomas-fryza/vhdl-examples/tree/master)
+(Debounce a Display driver byly následně upraveny pro naše potřeby)
+
+Během práce byla využita AI [Google Gemini](https://gemini.google.com/app) pro vytvoření look-up tabulky harmonického průběhu a konzultace
+
+Testbenche pro simulace byly automaticky předpřipraveny:
+* [https://vhdl.lapinoo.net](https://vhdl.lapinoo.net)
